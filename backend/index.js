@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import router from "./routes/user";
 import bodyParser from "body-parser";
 import cors from "cors";
+import blogRouter from "./routes/blog";
 const app = express();
 
 // app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -10,8 +11,9 @@ const app = express();
 app.use(cors());
 app.use(express.json())
 app.use("/api/user", router);
+app.use("/api/blog", blogRouter);
 
-const PORT = 5000;
+const PORT = 8080;
 
 const CONNECTION_URL =
   "mongodb+srv://blog:blog123@cluster0.c44doqn.mongodb.net/?retryWrites=true&w=majority";
